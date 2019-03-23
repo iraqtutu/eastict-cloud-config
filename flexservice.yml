@@ -1,0 +1,44 @@
+#注意：缩进不要使用Tab，SpringBoot会无法解析报错
+spring:
+  profiles:
+    active: dev # 激活开发环境配置
+    
+---
+server:
+  port: 8002
+spring:
+  profiles: dev
+eureka:
+  client:
+    registerWithEureka: false # 服务注册，false表示不将本消费者注册到 Eureka 服务器
+    fetchRegistry: true # 服务发现，true从 Eureka 服务器中获取注册信息
+    serviceUrl:
+      defaultZone: http://localhost:6001/eureka/
+      #defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${server.port} # 等价于microservice-product:8001
+    prefer-ip-address: true #访问路径就会显示成IP地址
+
+feign:
+  hystrix:
+    enabled: true # 开启服务熔断器
+    
+---
+server:
+  port: 8002
+spring:
+  profiles: runtime
+eureka:
+  client:
+    registerWithEureka: false # 服务注册，false表示不将本消费者注册到 Eureka 服务器
+    fetchRegistry: true # 服务发现，true从 Eureka 服务器中获取注册信息
+    serviceUrl:
+      defaultZone: http://localhost:6001/eureka/
+      #defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${server.port} # 等价于microservice-product:8001
+    prefer-ip-address: true #访问路径就会显示成IP地址
+
+feign:
+  hystrix:
+    enabled: true # 开启服务熔断器
