@@ -36,8 +36,8 @@ eureka:
       defaultZone: http://localhost:6001/eureka/
       #defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
   instance:
-    instanceId: ${spring.application.name}:${server.port} # 等价于microservice-product:8001
     prefer-ip-address: true #访问路径就会显示成IP地址
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
 
 feign:
   hystrix:
