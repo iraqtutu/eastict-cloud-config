@@ -5,15 +5,15 @@ spring:
     
 ---
 server:
-  port: 8002
+  port: 8003
 spring:
   profiles: dev
 eureka:
   client:
-    registerWithEureka: false # 服务注册，false表示不将本消费者注册到 Eureka 服务器
+    registerWithEureka: true # 服务注册
     fetchRegistry: true # 服务发现，true从 Eureka 服务器中获取注册信息
     serviceUrl:
-      defaultZone: http://localhost:6001/eureka/
+      defaultZone: http://localhost:8002/eureka/
       #defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
   instance:
     prefer-ip-address: true #访问路径就会显示成IP地址
@@ -29,10 +29,10 @@ spring:
   profiles: runtime
 eureka:
   client:
-    registerWithEureka: false # 服务注册，false表示不将本消费者注册到 Eureka 服务器
+    registerWithEureka: true # 服务注册
     fetchRegistry: true # 服务发现，true从 Eureka 服务器中获取注册信息
     serviceUrl:
-      defaultZone: http://localhost:6001/eureka/
+      defaultZone: http://localhost:8002/eureka/
       #defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
   instance:
     prefer-ip-address: true #访问路径就会显示成IP地址
