@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: zuul-gateway-8080
+    name: zuul-gateway
 
 eureka:
   client:
@@ -15,8 +15,7 @@ eureka:
       # 集群版 Eureka 服务注册中心
       #defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka
   instance:
-    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
-    preferIpAddress: true     #访问路径可以显示IP地址
+    prefer-ip-address: true    #访问路径可以显示IP地址
 
 zuul:
   routes:
