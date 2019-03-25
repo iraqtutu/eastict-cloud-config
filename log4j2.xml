@@ -1,17 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
     <Appenders>
-        <Console name="Stdout" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS}:%5p [%40.40c{1.}:%3L] - %m%n"/>
-        </Console>
-        <Socket name="Socket" host="localhost" port="4560">
-            <JsonLayout compact="true" eventEol="true" />
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS}:%5p [%40.40c{1.}:%3L] - %m%n"/>
-        </Socket>
+        <Gelf name="logstash-gelf" host="tcp:127.0.0.1" port="4560" version="1.1">
+            <Field name="timestamp" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}" />
+            <Field name="logger" pattern="%logger" />
+            <Field name="level" pattern="%level" />
+            <Field name="className" pattern="%C" />
+            <Field name="method" pattern="%M" />
+            <Field name="line" pattern="%L" />
+            <Field name="server" pattern="%host" />
+        </Gelf>
     </Appenders>
     <Loggers>
-        <Root level="debug">
-            <AppenderRef ref="Stdout"/>
-            <AppenderRef ref="Socket"/>
+        <Root level="INFO">
+            <AppenderRef ref="logstash-gelf" />
         </Root>
     </Loggers>
 </Configuration>
