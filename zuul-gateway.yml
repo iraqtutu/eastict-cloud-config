@@ -23,9 +23,11 @@ zuul:
       path: /product/** # 访问路径
       serviceId: cloud-simpleservice # 指定服务ID，会自动从Eureka中找到此服务的ip和端口
       stripPrefix: false # 代理转发时去掉前缀，false:代理转发时不去掉前缀 例如:为true时请求 /product/get/1，代理转发到/get/1
+      sensitiveHeaders: "*"
 
     # 如果多个服务需要经过路由，则同povider-product方式继续添加，例如：
     #provider-order:
       #path: /order/**
       #serviceId: microservice-order
       #stripPrefix: false
+      #sensitiveHeaders: "*"
