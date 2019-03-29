@@ -23,6 +23,8 @@ eureka:
 feign:
   hystrix:
     enabled: true # 开启服务熔断器
+logstash:
+  destination: 140.143.161.159:9999              #logstash地址
     
 ---
 server:

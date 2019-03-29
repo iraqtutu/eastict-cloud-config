@@ -39,8 +39,7 @@ spring:
       max-total: 5                               # 最大连接数
       max-wait-millis: 150                       # 等待连接获取的最大超时时间
 logstash:
-  host: 
-  port:
+  destination: 140.143.161.159:9999              #logstash地址
 
 eureka:
   client:

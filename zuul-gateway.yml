@@ -43,3 +43,5 @@ zuul:
       #serviceId: microservice-order
       #stripPrefix: false
       #sensitiveHeaders: "*"
+logstash:
+  destination: 140.143.161.159:9999              #logstash地址
