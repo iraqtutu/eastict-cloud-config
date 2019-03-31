@@ -44,7 +44,7 @@ eureka:
     registerWithEureka: true # 服务注册开关
     fetchRegistry: true # 服务发现开关
     serviceUrl: # 注册到哪一个Eureka Server服务注册中心，多个中间用逗号分隔
-      defaultZone: http://localhost:8002/eureka
+      defaultZone: http://140.143.161.159:8002/eureka
       #defaultZone: http://localhost:8002/eureka,http://eureka6002.com:6002/eureka
   instance:
     prefer-ip-address: true
