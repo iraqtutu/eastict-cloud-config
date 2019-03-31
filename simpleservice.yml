@@ -50,9 +50,7 @@ eureka:
     prefer-ip-address: true
     #instanceId: ${spring.cloud.client.ipAddress}:${server.port}
     
-logback:
-   logstash:
-     destination:140.143.161.159:9999
+logback.logstash.destination:140.143.161.159:9999
 
 # 在被监控服务上添加暴露端点
 management:
